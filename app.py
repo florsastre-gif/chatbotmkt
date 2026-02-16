@@ -46,7 +46,9 @@ with col2:
             st.error("Ingresa la API Key")
         else:
             try:
-                genai.configure(api_key=api_key)
+                # Intenta usar Secrets de la nube; si no, usa la variable del sidebar
+                api_key_final = st.secrets.get("GOOGLE_API_KEY", api_key)
+                genai.configure(api_key=api_key_final)
                 model = genai.GenerativeModel('gemini-1.5-flash')
                 
                 prompt = f"Actúa como un mentor experto en marketing. El usuario es: {rol}. Responde a: {user_input}"
