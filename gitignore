@@ -1,0 +1,9 @@
+# Variables de entorno (API Keys)
+.env
+
+# Archivos temporales de Python
+__pycache__/
+*.pyc
+
+# Configuración local de Streamlit
+.streamlit/
